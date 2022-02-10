@@ -1,7 +1,7 @@
 # calculator-vanilla-js
 
 # branches list
---html, css(bem)
---less
+--html, css ✔
+--less ✔
 --bulma
 --vanilla js

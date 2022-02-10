@@ -7,20 +7,93 @@
     <meta name="keywords" content="Calculator, vanilla JS" />
     <meta name="description" content="created by vaniila js" />
     <meta name="author" content="Ali Bagheri" />
+    <!-- * google font -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Trirong"
+    />
+    <!-- * website icon -->
+    <link rel="icon" type="image/x-icon" href="./image/calc-logo.png" />
     <!-- * my css file -->
-    <link rel="stylesheet" href="css/main.min.css" />
-    <title>Calculator with vanilla js</title>
+    <link rel="stylesheet" href="./css/main.min.css" />
+    <title>Neumorphism Vanilla-JS Calculator</title>
   </head>
   <body>
     <!-- ? I use this command 'less-watch-compiler' for less compile -->
 
-    <!-- * nav element for mobile-->
-    
+    <!-- * calculator box-->
+    <form class="form" onsubmit="event.preventDefault()">
+      <div class="grid-container">
+        <div class="root-input">
+          <div class="inner-input">
+            <input type="text" class="input-number" placeholder="0" autofocus />
+          </div>
+        </div>
 
+        <div class="equate">
+          <div class="btn">
+            <button class="inner-button" type="submit" id="equate">=</button>
+          </div>
+        </div>
 
+        <div class="btn">
+          <button class="inner-button orange" id="clear">AC</button>
+        </div>
 
+        <div class="btn">
+          <button class="inner-button orange">/</button>
+        </div>
+        <div class="btn">
+          <button class="inner-button orange">x</button>
+        </div>
 
+        <div class="btn">
+          <button class="inner-button orange" id="backspace">C</button>
+        </div>
 
-    
+        <div class="btn">
+          <button class="inner-button">7</button>
+        </div>
+        <div class="btn">
+          <button class="inner-button">8</button>
+        </div>
+        <div class="btn">
+          <button class="inner-button">9</button>
+        </div>
+        <div class="btn">
+          <button class="inner-button orange">-</button>
+        </div>
+        <div class="btn">
+          <button class="inner-button">4</button>
+        </div>
+        <div class="btn">
+          <button class="inner-button">5</button>
+        </div>
+        <div class="btn">
+          <button class="inner-button">6</button>
+        </div>
+        <div class="btn">
+          <button class="inner-button orange">+</button>
+        </div>
+        <div class="btn">
+          <button class="inner-button">1</button>
+        </div>
+        <div class="btn">
+          <button class="inner-button">2</button>
+        </div>
+        <div class="btn">
+          <button class="inner-button">3</button>
+        </div>
+        <div class="btn">
+          <button class="inner-button">%</button>
+        </div>
+        <div class="btn">
+          <button class="inner-button">0</button>
+        </div>
+        <div class="btn">
+          <button class="inner-button">.</button>
+        </div>
+      </div>
+    </form>
   </body>
 </html>
