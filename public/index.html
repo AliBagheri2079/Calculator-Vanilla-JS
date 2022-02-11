@@ -19,10 +19,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
-    <!-- * my css file -->
-    <!-- <link rel="stylesheet" href="./css/main.min.css" /> -->
+    <!-- 
+      * my css file 
+    <link rel="stylesheet" href="./css/main.min.css" /> 
+    -->
     <title>Vanilla-JS Calculator</title>
-
     <style>
       a:not([href]) {
         color: rgb(255, 0, 43) !important;
@@ -133,8 +134,8 @@
           <div
             class="column is-10-mobile is-offset-1-mobile is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop box"
           >
-            <form onsubmit="event.preventDefault()">
-              <div class="field">
+            <form name="calculator" onsubmit="event.preventDefault()">
+              <div class="field box">
                 <div class="control is-medium is-loading">
                   <input
                     type="text"
@@ -152,6 +153,8 @@
                   <button
                     class="button is-danger is-outlined box is-rounded is-normal is-responsive px-3"
                     id="clear"
+                    value=""
+                    onclick="calculateInput(this.value)"
                   >
                     AC
                   </button>
@@ -169,6 +172,8 @@
                 <div>
                   <button
                     class="button is-primary is-light box is-rounded is-normal is-responsive px-4"
+                    value=" / "
+                    onclick="calculateInput(this.value)"
                   >
                     /
                   </button>
@@ -177,6 +182,8 @@
                 <div>
                   <button
                     class="button is-primary is-light box is-rounded is-normal is-responsive px-4"
+                    value=" * "
+                    onclick="calculateInput(this.value)"
                   >
                     x
                   </button>
@@ -189,6 +196,8 @@
                 <div>
                   <button
                     class="button is-dark box is-rounded is-normal is-responsive px-4"
+                    value="7"
+                    onclick="calculateInput(this.value)"
                   >
                     7
                   </button>
@@ -196,6 +205,8 @@
                 <div>
                   <button
                     class="button is-dark box is-rounded is-normal is-responsive px-4"
+                    value="8"
+                    onclick="calculateInput(this.value)"
                   >
                     8
                   </button>
@@ -203,6 +214,8 @@
                 <div>
                   <button
                     class="button is-dark box is-rounded is-normal is-responsive px-4"
+                    value="9"
+                    onclick="calculateInput(this.value)"
                   >
                     9
                   </button>
@@ -210,6 +223,8 @@
                 <div>
                   <button
                     class="button is-primary is-light box is-rounded is-normal is-responsive px-4"
+                    value=" - "
+                    onclick="calculateInput(this.value)"
                   >
                     -
                   </button>
@@ -222,6 +237,8 @@
                 <div>
                   <button
                     class="button is-dark box is-rounded is-normal is-responsive px-4"
+                    value="4"
+                    onclick="calculateInput(this.value)"
                   >
                     4
                   </button>
@@ -229,6 +246,8 @@
                 <div>
                   <button
                     class="button is-dark box is-rounded is-normal is-responsive px-4 ml-1"
+                    value="5"
+                    onclick="calculateInput(this.value)"
                   >
                     5
                   </button>
@@ -236,6 +255,8 @@
                 <div>
                   <button
                     class="button is-dark box is-rounded is-normal is-responsive px-4"
+                    value="6"
+                    onclick="calculateInput(this.value)"
                   >
                     6
                   </button>
@@ -243,6 +264,8 @@
                 <div>
                   <button
                     class="button is-primary is-light box is-rounded is-normal is-responsive px-4"
+                    value=" + "
+                    onclick="calculateInput(this.value)"
                   >
                     +
                   </button>
@@ -255,6 +278,8 @@
                 <div>
                   <button
                     class="button is-dark box is-rounded is-normal is-responsive px-4"
+                    value="1"
+                    onclick="calculateInput(this.value)"
                   >
                     1
                   </button>
@@ -262,6 +287,8 @@
                 <div>
                   <button
                     class="button is-dark box is-rounded is-normal is-responsive px-4 ml-1"
+                    value="2"
+                    onclick="calculateInput(this.value)"
                   >
                     2
                   </button>
@@ -269,6 +296,8 @@
                 <div>
                   <button
                     class="button is-dark box is-rounded is-normal is-responsive px-4 ml-1"
+                    value="3"
+                    onclick="calculateInput(this.value)"
                   >
                     3
                   </button>
@@ -276,6 +305,8 @@
                 <div>
                   <button
                     class="button is-primary is-light box is-rounded is-normal is-responsive px-4"
+                    value=" % "
+                    onclick="calculateInput(this.value)"
                   >
                     %
                   </button>
@@ -288,6 +319,8 @@
                 <div>
                   <button
                     class="button is-dark is-outlined box is-rounded is-normal is-responsive px-3"
+                    value="00"
+                    onclick="calculateInput(this.value)"
                   >
                     00
                   </button>
@@ -295,6 +328,8 @@
                 <div>
                   <button
                     class="button is-dark box is-rounded is-normal is-responsive px-4"
+                    value="0"
+                    onclick="calculateInput(this.value)"
                   >
                     0
                   </button>
@@ -303,6 +338,8 @@
                   <button
                     class="button is-dark is-outlined box is-rounded is-normal is-responsive"
                     style="padding: 0 18px"
+                    value="."
+                    onclick="calculateInput(this.value)"
                   >
                     .
                   </button>
@@ -312,6 +349,7 @@
                     class="button is-warning box is-rounded is-normal is-responsive px-4"
                     type="submit"
                     id="equate"
+                    value=" = "
                   >
                     =
                   </button>
@@ -349,7 +387,7 @@
       </div>
 
       <!-- * hero footer -->
-      <div class="hero-foot" style="margin: -80px auto 50px">
+      <div class="hero-foot" style="margin: -60px auto 50px">
         <nav
           class="pagination is-centered is-rounded"
           role="navigation"
@@ -392,31 +430,7 @@
       </div>
     </section>
 
-    <!-- * navbar toggle show code -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Get all "navbar-burger" elements
-        const $navbarBurgers = Array.prototype.slice.call(
-          document.querySelectorAll(".navbar-burger"),
-          0
-        );
-
-        // Check if there are any navbar burgers
-        if ($navbarBurgers.length > 0) {
-          // Add a click event on each of them
-          $navbarBurgers.forEach((el) => {
-            el.addEventListener("click", () => {
-              // Get the target from the "data-target" attribute
-              const target = el.dataset.target;
-              const $target = document.getElementById(target);
-
-              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-              el.classList.toggle("is-active");
-              $target.classList.toggle("is-active");
-            });
-          });
-        }
-      });
-    </script>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/calculator.js"></script>
   </body>
 </html>
