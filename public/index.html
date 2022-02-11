@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="keywords" content="Calculator, vanilla JS" />
-    <meta name="description" content="created by vaniila js" />
+    <meta name="keywords" content="Calculator, Less, Bulma, Vanilla JS" />
+    <meta name="description" content="created with bulma css and vaniila js" />
     <meta name="author" content="Ali Bagheri" />
     <!-- * google font -->
     <link
@@ -13,87 +13,410 @@
       href="https://fonts.googleapis.com/css?family=Trirong"
     />
     <!-- * website icon -->
-    <link rel="icon" type="image/x-icon" href="./image/calc-logo.png" />
+    <link rel="icon" type="image/png" href="./image/calc-logo.png" />
+    <!-- * bulma css cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
     <!-- * my css file -->
-    <link rel="stylesheet" href="./css/main.min.css" />
-    <title>Neumorphism Vanilla-JS Calculator</title>
+    <!-- <link rel="stylesheet" href="./css/main.min.css" /> -->
+    <title>Vanilla-JS Calculator</title>
+
+    <style>
+      a:not([href]) {
+        color: rgb(255, 0, 43) !important;
+      }
+    </style>
   </head>
   <body>
     <!-- ? I use this command 'less-watch-compiler' for less compile -->
 
-    <!-- * calculator box-->
-    <form class="form" onsubmit="event.preventDefault()">
-      <div class="grid-container">
-        <div class="root-input">
-          <div class="inner-input">
-            <input type="text" class="input-number" placeholder="0" autofocus />
+    <!-- * hero content -->
+    <section class="hero is-info is-large">
+      <!-- * hero header -->
+      <div class="hero-head">
+        <nav class="navbar is-fixed-top has-background-grey">
+          <div class="container">
+            <div class="navbar-brand">
+              <a href="https://bulma.io/" class="navbar-item">
+                <figure class="image is-112x28">
+                  <img
+                    src="https://bulma.io/images/bulma-logo.png"
+                    alt="Bulma: a modern CSS framework based on Flexbox"
+                  />
+                </figure>
+              </a>
+
+              <a
+                href="#"
+                role="button"
+                class="navbar-burger"
+                data-target="navbarMenuHeroB"
+                aria-label="menu"
+                aria-expanded="false"
+              >
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+
+            <div id="navbarMenuHeroB" class="navbar-menu">
+              <div class="navbar-end">
+                <a href="https://bulma.io/" class="navbar-item is-active">
+                  Home
+                </a>
+                <a
+                  href="https://bulma.io/documentation/overview/example/"
+                  class="navbar-item"
+                >
+                  Examples
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                  <a class="navbar-link has-background-info" href="#">
+                    Documentation
+                  </a>
+
+                  <div class="navbar-dropdown">
+                    <a class="navbar-item is-active" href="#"> About </a>
+                    <a class="navbar-item has-text-info" href="#"> Jobs </a>
+                    <a class="navbar-item has-text-info" href="#"> Contact </a>
+                    <hr class="navbar-divider" />
+                    <a class="navbar-item has-text-info" href="#">
+                      Report an issue
+                    </a>
+                  </div>
+                </div>
+
+                <span class="navbar-item">
+                  <a href="#" class="button is-info is-inverted">
+                    <span class="icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 496 512"
+                      >
+                        <!--! Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                          d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                        />
+                      </svg>
+                    </span>
+                    <span>Download</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- * hero body -->
+      <div class="hero-body has-text-centered">
+        <!-- * body header -->
+        <section class="block">
+          <h1
+            class="title has-text-black is-size-3 is-size-1-desktop is-uppercase has-text-weight-bold is-family-sans-serif"
+          >
+            Neumorphism Calculator
+          </h1>
+
+          <h3 class="subtitle has-text-light is-lowercase is-family-monospace">
+            Created by Ali Bagheri on
+            <time datetime="2022-02-11">February 11</time>
+          </h3>
+        </section>
+
+        <!-- * calculator box -->
+        <div class="columns is-multiline is-mobile">
+          <div
+            class="column is-10-mobile is-offset-1-mobile is-8-tablet is-offset-2-tablet is-6-desktop is-offset-3-desktop box"
+          >
+            <form onsubmit="event.preventDefault()">
+              <div class="field">
+                <div class="control is-medium is-loading">
+                  <input
+                    type="text"
+                    class="input is-info is-medium is-rounded"
+                    placeholder="0"
+                    autofocus
+                  />
+                </div>
+              </div>
+
+              <div
+                class="is-flex is-flex-direction-row is-justify-content-space-between mx-5 my-3"
+              >
+                <div>
+                  <button
+                    class="button is-danger is-outlined box is-rounded is-normal is-responsive px-3"
+                    id="clear"
+                  >
+                    AC
+                  </button>
+                </div>
+
+                <div>
+                  <button
+                    class="button is-danger is-light box is-rounded is-normal is-responsive px-4"
+                    id="backspace"
+                  >
+                    C
+                  </button>
+                </div>
+
+                <div>
+                  <button
+                    class="button is-primary is-light box is-rounded is-normal is-responsive px-4"
+                  >
+                    /
+                  </button>
+                </div>
+
+                <div>
+                  <button
+                    class="button is-primary is-light box is-rounded is-normal is-responsive px-4"
+                  >
+                    x
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="is-flex is-flex-direction-row is-justify-content-space-between mx-5 my-3"
+              >
+                <div>
+                  <button
+                    class="button is-dark box is-rounded is-normal is-responsive px-4"
+                  >
+                    7
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="button is-dark box is-rounded is-normal is-responsive px-4"
+                  >
+                    8
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="button is-dark box is-rounded is-normal is-responsive px-4"
+                  >
+                    9
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="button is-primary is-light box is-rounded is-normal is-responsive px-4"
+                  >
+                    -
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="is-flex is-flex-direction-row is-justify-content-space-between mx-5 my-3"
+              >
+                <div>
+                  <button
+                    class="button is-dark box is-rounded is-normal is-responsive px-4"
+                  >
+                    4
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="button is-dark box is-rounded is-normal is-responsive px-4 ml-1"
+                  >
+                    5
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="button is-dark box is-rounded is-normal is-responsive px-4"
+                  >
+                    6
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="button is-primary is-light box is-rounded is-normal is-responsive px-4"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="is-flex is-flex-direction-row is-justify-content-space-between mx-5 my-3"
+              >
+                <div>
+                  <button
+                    class="button is-dark box is-rounded is-normal is-responsive px-4"
+                  >
+                    1
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="button is-dark box is-rounded is-normal is-responsive px-4 ml-1"
+                  >
+                    2
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="button is-dark box is-rounded is-normal is-responsive px-4 ml-1"
+                  >
+                    3
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="button is-primary is-light box is-rounded is-normal is-responsive px-4"
+                  >
+                    %
+                  </button>
+                </div>
+              </div>
+
+              <div
+                class="is-flex is-flex-direction-row is-justify-content-space-between mx-5 my-3"
+              >
+                <div>
+                  <button
+                    class="button is-dark is-outlined box is-rounded is-normal is-responsive px-3"
+                  >
+                    00
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="button is-dark box is-rounded is-normal is-responsive px-4"
+                  >
+                    0
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="button is-dark is-outlined box is-rounded is-normal is-responsive"
+                    style="padding: 0 18px"
+                  >
+                    .
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="button is-warning box is-rounded is-normal is-responsive px-4"
+                    type="submit"
+                    id="equate"
+                  >
+                    =
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
 
-        <div class="equate">
-          <div class="btn">
-            <button class="inner-button" type="submit" id="equate">=</button>
+        <!-- * clculator tags -->
+        <div
+          class="block is-flex is-flex-direction-row is-justify-content-center field is-grouped is-grouped-multiline my-5"
+        >
+          <div class="control">
+            <div class="tags has-addons">
+              <span class="tag is-dark">npm</span>
+              <span class="tag is-primary">0.9.3</span>
+            </div>
           </div>
-        </div>
 
-        <div class="btn">
-          <button class="inner-button orange" id="clear">AC</button>
-        </div>
+          <div class="control">
+            <div class="tags has-addons">
+              <span class="tag is-dark">build</span>
+              <span class="tag is-success">passing</span>
+            </div>
+          </div>
 
-        <div class="btn">
-          <button class="inner-button orange">/</button>
-        </div>
-        <div class="btn">
-          <button class="inner-button orange">x</button>
-        </div>
-
-        <div class="btn">
-          <button class="inner-button orange" id="backspace">C</button>
-        </div>
-
-        <div class="btn">
-          <button class="inner-button">7</button>
-        </div>
-        <div class="btn">
-          <button class="inner-button">8</button>
-        </div>
-        <div class="btn">
-          <button class="inner-button">9</button>
-        </div>
-        <div class="btn">
-          <button class="inner-button orange">-</button>
-        </div>
-        <div class="btn">
-          <button class="inner-button">4</button>
-        </div>
-        <div class="btn">
-          <button class="inner-button">5</button>
-        </div>
-        <div class="btn">
-          <button class="inner-button">6</button>
-        </div>
-        <div class="btn">
-          <button class="inner-button orange">+</button>
-        </div>
-        <div class="btn">
-          <button class="inner-button">1</button>
-        </div>
-        <div class="btn">
-          <button class="inner-button">2</button>
-        </div>
-        <div class="btn">
-          <button class="inner-button">3</button>
-        </div>
-        <div class="btn">
-          <button class="inner-button">%</button>
-        </div>
-        <div class="btn">
-          <button class="inner-button">0</button>
-        </div>
-        <div class="btn">
-          <button class="inner-button">.</button>
+          <div class="control">
+            <div class="tags has-addons">
+              <a href="#" class="tag is-link">Technology</a>
+              <a href="#" class="tag is-delete"></a>
+            </div>
+          </div>
         </div>
       </div>
-    </form>
+
+      <!-- * hero footer -->
+      <div class="hero-foot" style="margin: -80px auto 50px">
+        <nav
+          class="pagination is-centered is-rounded"
+          role="navigation"
+          aria-label="pagination"
+        >
+          <a href="#" class="pagination-previous">Previous</a>
+          <a href="#" class="pagination-next">Next page</a>
+          <ul class="pagination-list">
+            <li>
+              <a href="#" class="pagination-link" aria-label="Goto page 1">1</a>
+            </li>
+            <li><span class="pagination-ellipsis">&hellip;</span></li>
+            <li>
+              <a href="#" class="pagination-link" aria-label="Goto page 45"
+                >45</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="pagination-link is-current"
+                aria-label="Page 46"
+                aria-current="page"
+                >46</a
+              >
+            </li>
+            <li>
+              <a href="#" class="pagination-link" aria-label="Goto page 47"
+                >47</a
+              >
+            </li>
+            <li><span class="pagination-ellipsis">&hellip;</span></li>
+            <li>
+              <a href="#" class="pagination-link" aria-label="Goto page 86"
+                >86</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <!-- * navbar toggle show code -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(
+          document.querySelectorAll(".navbar-burger"),
+          0
+        );
+
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+          // Add a click event on each of them
+          $navbarBurgers.forEach((el) => {
+            el.addEventListener("click", () => {
+              // Get the target from the "data-target" attribute
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
+
+              // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+              el.classList.toggle("is-active");
+              $target.classList.toggle("is-active");
+            });
+          });
+        }
+      });
+    </script>
   </body>
 </html>
